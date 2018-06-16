@@ -12,6 +12,10 @@ class DailyEntriesController < ApplicationController
     end
   end
 
+  def show
+    @daily_entry = find_entry
+  end
+
   def index
     @daily_entries = DailyEntry.all
   end
@@ -20,5 +24,9 @@ class DailyEntriesController < ApplicationController
 
   def entries_params
     params.require(:daily_entry).permit(:body, :prefix)
+  end
+
+  def find_entry
+    DailyEntry.find(params[:id])
   end
 end
