@@ -1,0 +1,6 @@
+<h1>Entries</h1>
+<% @daily_entries.each do |daily_entry| %>
+  <div class="container">
+    <p><%= daily_entry.prefix %><br><%= daily_entry.body %></p>
+  </div>
+<% end %>

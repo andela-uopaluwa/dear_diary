@@ -6,12 +6,16 @@ class DailyEntriesController < ApplicationController
   def create
     @daily_entry = DailyEntry.new entries_params
     if @daily_entry.save
-      render daily_entry_path
+      redirect_to @daily_entry
     else
-      render plain: entries_params
+      render 'new'
     end
-    
   end
+
+  def index
+    @daily_entries = DailyEntry.all
+  end
+
   private
 
   def entries_params
