@@ -1,3 +1,8 @@
 <div>
   <p><%= @daily_entry.prefix %><br><%= @daily_entry.body %></p>
+  <%= link_to 'Back', daily_entries_path %>
+  <%= link_to 'Delete', @daily_entry,
+    method: :delete ,
+    data: { confirm: 'Are you sure?' }
+  %>
 </div>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/signup', to: 'users#new'
+
   get 'welcome/index'
 
   resources :daily_entries

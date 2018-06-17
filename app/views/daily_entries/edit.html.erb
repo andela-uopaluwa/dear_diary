@@ -1,0 +1,13 @@
+<h1>Edit Entry</h1>
+
+<%= form_for @daily_entry, local: true do |form| %>
+  <p><%= @daily_entry.prefix %></p>
+  <p>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', daily_entries_path %>
