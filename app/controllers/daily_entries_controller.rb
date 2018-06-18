@@ -1,4 +1,6 @@
 class DailyEntriesController < ApplicationController
+  before_filter :authorize, only: [:destroy]
+
   def new
     @daily_entry = DailyEntry.new
   end
