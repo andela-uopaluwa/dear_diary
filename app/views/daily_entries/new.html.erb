@@ -1,6 +1,15 @@
 <h1>New Entry</h1>
 
 <%= form_for @daily_entry, local: true do |form| %>
+  <% if  @daily_entry.errors.any? %>
+    <h2>Form is invalid.</h2>
+    <ul>
+      <% @daily_entry.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <p><%= @daily_entry.prefix %></p>
   <p>
     <%= form.text_area :body %>

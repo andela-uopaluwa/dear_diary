@@ -11,6 +11,8 @@ class DailyEntriesController < ApplicationController
 
   def create
     @daily_entry = DailyEntry.new entries_params
+    @daily_entry.user_id = current_user.id
+
     if @daily_entry.save
       redirect_to @daily_entry
     else
