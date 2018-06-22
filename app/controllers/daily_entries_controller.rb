@@ -25,7 +25,7 @@ class DailyEntriesController < ApplicationController
   end
 
   def index
-    @daily_entries = DailyEntry.all
+    @daily_entries = DailyEntry.owned_by_user current_user.id
   end
 
   def update
@@ -46,12 +46,12 @@ class DailyEntriesController < ApplicationController
   end
 
   private
-
+  # TODO handle no record found errors and display something to the user
   def entries_params
     params.require(:daily_entry).permit(:body, :prefix)
   end
 
   def find_entry
-    DailyEntry.find(params[:id])
+    DailyEntry.owned_by_user(current_user.id).find(params[:id])
   end
 end
